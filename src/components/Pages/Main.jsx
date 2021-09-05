@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from '@emotion/styled'
 import CountDown from '../CountDonw'
 import Footer from '../Footer'
 import stars from '../../source/img/stars.svg'
+import Form from '../Form'
 
 const Container = styled.div`
 background: linear-gradient(hsl(234, 17%, 12%), hsl(235, 16%, 14%), hsl(236, 21%, 26%));
@@ -15,16 +16,25 @@ background-image: url(${stars});
 `
 
 const Main = () =>{
-    const date = {
+    const [FormContainer, setFormContainer] = useState(false)
+    const [hoursMinSecs, setHoursMinSecs] = useState({
+        'days': 8,
         'hours': 8,
         'minutes': 0, 
         'seconds': 60
-    }
-    console.log('date ', date)
+    }) 
+    console.log('FormContainer ', FormContainer)
     return(
         <Container>
             <ContainerStart>
-              <CountDown hoursMinSec={date}/>
+                {FormContainer
+                ?<CountDown hoursMinSecs={hoursMinSecs}/>
+                :<Form 
+                hoursMinSecs={hoursMinSecs} 
+                setHoursMinSecs={setHoursMinSecs}
+                setFormContainer={setFormContainer}
+                /> 
+                }
               <Footer/>
             </ContainerStart>
         </Container>

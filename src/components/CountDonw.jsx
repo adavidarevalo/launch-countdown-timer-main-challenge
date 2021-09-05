@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import CountContainer from './CountContainer'
 import styled from '@emotion/styled'
+
+
+
 const Container = styled.div`
 div{
     h1{
@@ -26,15 +29,8 @@ const ContainerMediaQuery = styled.div`
 }
 `
 
-const CountDown = () =>{
-
-    const hoursMinSecs = {
-        'days': 8,
-        'hours': 8,
-        'minutes': 0, 
-        'seconds': 60
-    }
-    const { days = 8, hours = 0, minutes = 0, seconds = 60 } = hoursMinSecs;
+const CountDown = (props) =>{
+    const { days = 8, hours = 0, minutes = 0, seconds = 59 } = props.hoursMinSecs;
     const [[day, hrs, mins, secs], setTime] = useState([days, hours, minutes, seconds]);
     
    

@@ -1,6 +1,18 @@
 import React from 'react'
 import styled from '@emotion/styled'
-
+import {keyframes} from '@emotion/react'
+const fadeInDown = keyframes`
+0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    }
+    100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+    }
+`
 
 const Container = styled.section`
 display: flex;
@@ -8,6 +20,7 @@ justify-content: center;
 align-items: center;
 min-height: 80vh;
 form{
+    animation: ${fadeInDown} 1s both;
     h2{
         text-align: center;
         color: white;
@@ -44,6 +57,10 @@ const ButtonInput = styled.input`
     color: white;
     border-radius: 3px;
     margin-top: 30px;
+    &:hover,
+    &:active{
+        transform: scale(1.05);
+    }
 `
 
 

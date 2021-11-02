@@ -4,6 +4,20 @@ import facebook from '../source/img/facebook.svg'
 import instagram from '../source/img/instagram.svg'
 import pinterest from '../source/img/pinterest.svg'
 import styled from '@emotion/styled'
+import {keyframes} from '@emotion/react'
+const fadeInUp = keyframes`
+0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    }
+    100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+    }
+`
+
 
 const Container = styled.footer`
 width: 100%;
@@ -12,6 +26,7 @@ min-height: 20vh;
 display: flex;
 justify-content: center;
 align-items: flex-end;
+animation: ${fadeInUp} 1s both;
 div{
     margin-bottom: 4vh;
     img:nth-of-type(2n){

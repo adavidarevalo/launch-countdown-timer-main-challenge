@@ -1,10 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import CountContainer from './CountContainer'
 import styled from '@emotion/styled'
-
+import {keyframes} from '@emotion/react'
+const fadeIn = keyframes`
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+`
 
 
 const Container = styled.div`
+animation: ${fadeIn} 1s both;
 div{
     h1{
         text-align: center;
